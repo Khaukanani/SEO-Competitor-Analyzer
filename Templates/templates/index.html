@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEO Competitor Analyzer</title>
+</head>
+<body>
+    <h1>Enter a keyword</h1>
+    <form method="POST">
+        <input type="text" name="keyword" required>
+        <button type="submit">Start Research</button>
+    </form>
+
+    {% if results %}
+    <h2>Results:</h2>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>URL</th>
+            <th>Meta Description</th>
+            <th>Top Keywords</th>
+        </tr>
+        {% for r in results %}
+        <tr>
+            <td>{{ r['Title'] }}</td>
+            <td><a href="{{ r['URL'] }}">{{ r['URL'] }}</a></td>
+            <td>{{ r['Meta Description'] }}</td>
+            <td>{{ r['Top Keywords'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
